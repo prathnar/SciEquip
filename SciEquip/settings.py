@@ -20,16 +20,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-DJANGO_SECRET_KEY = 'sg^*vlc@r)m5%(^bf92p-x^35rwlkhqdq2m--)ibgbu4=&w05_'
+SECRET_KEY = 'django-insecure-6xuh+10)h6*5q%=!8g9-ysrp8prfyeuvi%5&jsge&zh))equa-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    "sci-equip-nyrj748s9-prathmeshnar20-gmailcoms-projects.vercel.app",
-    ".vercel.app",
-    "localhost",
-    "127.0.0.1",
+    '.vercel.app',
+    'sci-equip-nyrj748s9-prathmeshnar20-gmailcoms-projects.vercel.app',
+    'localhost',
+    '127.0.0.1',
 ]
 
 
@@ -139,5 +139,3 @@ EMAIL_HOST_USER = 'narprathmesh20@gmail.com'
 EMAIL_HOST_PASSWORD = 'hjmb gwdz uzcc ydvi'  # 16-digit app password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL ="narprathmesh20@gmail.com"
-
-

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} | SciEquip{% endblock %}
+
+{% block content %}
+
+<section class="bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <!-- Product Card -->
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 p-8 md:p-12 items-center">
+
+                <!-- Product Image -->
+                <div class="bg-gray-100 rounded-2xl p-6 flex justify-center items-center">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="max-h-[420px] w-full object-contain
+                                transition-transform duration-300 hover:scale-105">
+                    {% else %}
+                    <span class="text-gray-400 text-lg">No Image Available</span>
+                    {% endif %}
+                </div>
+
+                <!-- Product Info -->
+                <div>
+
+                    <!-- Title -->
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                        {{ product.name }}
+                    </h1>
+
+                    <!-- Function -->
+                    <p class="text-gray-600 mb-4">
+                        <span class="font-semibold text-gray-800">Function:</span>
+                        {{ product.machine_function }}
+                    </p>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 leading-relaxed mb-6">
+                        {{ product.description }}
+                    </p>
+
+                    <!-- Price -->
+                    <p class="text-3xl font-bold text-purple-700 mb-8">
+                        ₹{{ product.price }}
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap gap-4">
+
+                        <!-- Back -->
+                        <a href="{% url 'product_list' %}" class="px-6 py-3 rounded-xl border border-gray-300
+                                  text-gray-700 font-medium
+                                  hover:bg-gray-100 transition">
+                            ← Back to Products
+                        </a>
+
+                        <!-- Get Quote -->
+                        <a href="{% url 'enquiry_form' product.id %}" class="px-6 py-3 rounded-xl bg-yellow-500
+                                  text-white font-semibold shadow-md
+                                  hover:bg-yellow-600 transition">
+                            📩 Get Quote
+                        </a>
+
+                        <!-- Add to Cart -->
+                        <a href="{% url 'add_to_cart' product.id %}" class="px-7 py-3 rounded-xl bg-purple-600
+                                  text-white font-semibold shadow-lg
+                                  hover:bg-purple-700 hover:shadow-xl
+                                  active:scale-95 transition duration-200">
+                            🛒 Add to Cart
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

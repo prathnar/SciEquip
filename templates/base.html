@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SciEquip{% endblock %}</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Flowbite -->
+    <link href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Alpine -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+
+    <!-- 🔹 NAVBAR -->
+    <nav class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b shadow-md">
+        <div class="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="{% url 'home' %}" class="flex items-center gap-2 hover:scale-105 transition">
+                <!-- <img src="{% static 'img/logo3.png' %}" class="h-10 md:h-12" alt="Sciequip Logo"> -->
+                SciEquip
+            </a>
+
+            <!-- Desktop Search -->
+            <form method="get" action="{% url 'product_list' %}"
+                class="hidden md:flex flex-1 max-w-xl mx-6">
+                <div class="relative w-full">
+                    <input type="search" name="q" value="{{ request.GET.q }}"
+                        placeholder="Search equipment..."
+                        class="w-full px-6 py-2.5 rounded-full border border-gray-300
+                               focus:ring-2 focus:ring-purple-500 focus:outline-none
+                               shadow-sm">
+                    <button type="submit"
+                        class="absolute right-1 top-1 bottom-1 px-6
+                               bg-gradient-to-r from-purple-600 to-indigo-600
+                               text-white rounded-full hover:opacity-90 transition">
+                        Search
+                    </button>
+                </div>
+            </form>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex items-center gap-8 font-semibold text-gray-700">
+                <li><a href="{% url 'home' %}" class="hover:text-purple-700 transition">Home</a></li>
+                <li><a href="{% url 'product_list' %}" class="hover:text-purple-700 transition">Products</a></li>
+                <li><a href="{% url 'view_cart' %}" class="hover:text-purple-700 transition">Cart</a></li>
+                <li><a href="{% url 'checkout' %}" class="hover:text-purple-700 transition">Checkout</a></li>
+                <li><a href="{% url 'about' %}" class="hover:text-purple-700 transition">About</a></li>
+                <!-- <li><a href="{% url 'contact' %}" class="hover:text-purple-700 transition">Contact</a></li> -->
+            </ul>
+
+            <!-- Right -->
+            <div class="flex items-center gap-4 ml-6">
+
+                {% if user.is_authenticated %}
+                <div class="relative" x-data="{ open: false }">
+                    <button @click="open = !open"
+                        class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200
+                               px-4 py-2 rounded-full shadow-sm transition">
+                        {{ user.username }}
+                        <svg class="w-4 h-4 transition" :class="{'rotate-180':open}"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div x-show="open" @click.outside="open=false"
+                        class="absolute right-0 mt-3 w-44 bg-white shadow-xl rounded-xl overflow-hidden ">
+                        <a href="{% url 'logout' %}"
+                            class="block px-4 py-3 hover:bg-purple-50 hover:text-purple-700 transition">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <a href="{% url 'login' %}"
+                   class="text-purple-700 font-semibold hover:underline">
+                    Login
+                </a>
+                {% endif %}
+
+                <!-- Mobile Menu Button -->
+                <button data-collapse-toggle="mobile-menu"
+                    class="lg:hidden text-2xl text-gray-700 hover:text-purple-700 transition">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <!-- 📱 MOBILE SEARCH -->
+        <div class="md:hidden px-4 pb-4">
+            <form method="get" action="{% url 'product_list' %}" class="flex shadow-sm">
+                <input type="search" name="q"
+                    class="flex-1 px-4 py-2 border rounded-l-lg focus:outline-none">
+                <button type="submit"
+                    class="px-5 bg-purple-600 text-white rounded-r-lg hover:bg-purple-700 transition">
+                    Go
+                </button>
+            </form>
+        </div>
+
+        <!-- 📱 MOBILE MENU -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t bg-white shadow-sm">
+            <ul class="flex flex-col p-5 gap-4 font-semibold text-gray-700">
+                <li><a href="{% url 'home' %}" class="block hover:text-purple-700">Home</a></li>
+                <li><a href="{% url 'product_list' %}" class="block hover:text-purple-700">Products</a></li>
+                <li><a href="{% url 'view_cart' %}" class="block hover:text-purple-700">Cart</a></li>
+                <li><a href="{% url 'checkout' %}" class="block hover:text-purple-700">Checkout</a></li>
+                <li><a href="{% url 'about' %}" class="block hover:text-purple-700">About</a></li>
+                <!-- <li><a href="{% url 'contact' %}" class="block hover:text-purple-700">Contact</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 🔹 MAIN -->
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 🔹 FOOTER -->
+    <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-gray-300 mt-16">
+        <div class="max-w-screen-xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-3">
+            <div>
+                <h3 class="text-white mb-4 font-semibold text-lg">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a class="hover:text-white" href="{% url 'home' %}">Home</a></li>
+                    <li><a class="hover:text-white" href="{% url 'product_list' %}">Products</a></li>
+                    <li><a class="hover:text-white" href="{% url 'view_cart' %}">Cart</a></li>
+                    <li><a class="hover:text-white" href="{% url 'checkout' %}">Checkout</a></li>
+                    <li><a class="hover:text-white" href="{% url 'about' %}">About</a></li>
+                    <!-- <li><a class="hover:text-white" href="{% url 'contact' %}">Contact</a></li> -->
+                </ul>
+            </div>
+
+            <div class="text-center">
+                <h3 class="text-white mb-3 font-semibold text-xl">Sciequip</h3>
+                <p class="text-sm text-gray-400">
+                    Laboratory & Scientific Equipment Platform
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-white mb-4 font-semibold text-lg">Contact</h3>
+                <p class="text-sm">info@example.com</p>
+            </div>
+        </div>
+
+        <div class="text-center text-sm py-4 border-t border-gray-700">
+            © 2025 Sciequip · All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+</body>
+</html>

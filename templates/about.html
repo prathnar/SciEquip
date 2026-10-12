@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | SciEquip{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <title>About SciEquip</title>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- 🔹 HERO -->
+<section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-24 text-center">
+    <h1 class="text-5xl font-extrabold mb-4" data-aos="fade-down">
+        About SciEquip
+    </h1>
+    <p class="text-xl max-w-3xl mx-auto opacity-90" data-aos="fade-up">
+        Empowering laboratories with precision-driven scientific equipment and innovative research solutions.
+    </p>
+</section>
+
+<!-- 🔹 MISSION -->
+<section class="py-20 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6" data-aos="fade-down">
+            Our Mission & Values
+        </h2>
+        <p class="text-gray-600 max-w-3xl mx-auto mb-12" data-aos="fade-up">
+            Our mission is to deliver reliable, accurate, and innovative laboratory equipment that accelerates
+            scientific research and technological advancement.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:scale-105 transition" data-aos="zoom-in">
+                <h3 class="text-4xl font-extrabold text-indigo-600">500+</h3>
+                <p class="mt-2 text-gray-600">Products Available</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:scale-105 transition" data-aos="zoom-in">
+                <h3 class="text-4xl font-extrabold text-indigo-600">10+</h3>
+                <p class="mt-2 text-gray-600">Years of Experience</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 VISION -->
+<section class="bg-gray-900 text-white py-20 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6" data-aos="fade-down">
+            Our Vision
+        </h2>
+        <p class="text-gray-300 text-lg" data-aos="fade-up">
+            To become a globally trusted supplier of cutting-edge scientific instruments that simplify research,
+            enhance accuracy, and inspire innovation.
+        </p>
+    </div>
+</section>
+
+<!-- 🔹 PRODUCTS -->
+<section class="py-20 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-12" data-aos="fade-down">
+            Our Scientific Equipment
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="bg-indigo-50 p-8 rounded-2xl shadow hover:bg-indigo-100 transition" data-aos="fade-up">
+                <h3 class="text-xl font-bold">Microscopes</h3>
+            </div>
+            <div class="bg-indigo-50 p-8 rounded-2xl shadow hover:bg-indigo-100 transition" data-aos="fade-up">
+                <h3 class="text-xl font-bold">Lab Glassware</h3>
+            </div>
+            <div class="bg-indigo-50 p-8 rounded-2xl shadow hover:bg-indigo-100 transition" data-aos="fade-up">
+                <h3 class="text-xl font-bold">Chemicals</h3>
+            </div>
+            <div class="bg-indigo-50 p-8 rounded-2xl shadow hover:bg-indigo-100 transition" data-aos="fade-up">
+                <h3 class="text-xl font-bold">Electronic Equipment</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 TECHNOLOGY -->
+<section class="bg-white py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-down">
+            Innovative Technology
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-8 bg-gray-50 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-right">
+                <h3 class="text-xl font-bold mb-2">Precision Calibration</h3>
+                <p class="text-gray-600">Engineered for unmatched accuracy in research applications.</p>
+            </div>
+            <div class="p-8 bg-gray-50 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-left">
+                <h3 class="text-xl font-bold mb-2">Smart Lab Integration</h3>
+                <p class="text-gray-600">Seamless compatibility with modern digital lab environments.</p>
+            </div>
+            <div class="p-8 bg-gray-50 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-right">
+                <h3 class="text-xl font-bold mb-2">Eco-Friendly Materials</h3>
+                <p class="text-gray-600">Sustainable and safe materials for laboratory use.</p>
+            </div>
+            <div class="p-8 bg-gray-50 rounded-2xl shadow hover:shadow-xl transition" data-aos="fade-left">
+                <h3 class="text-xl font-bold mb-2">Global Compliance</h3>
+                <p class="text-gray-600">Certified and compliant with international standards.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 EXCELLENCE -->
+<section class="bg-indigo-600 text-white py-20 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-12" data-aos="fade-down">
+            Committed to Excellence
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="bg-white/10 p-8 rounded-2xl" data-aos="zoom-in">Global Reach</div>
+            <div class="bg-white/10 p-8 rounded-2xl" data-aos="zoom-in">Trusted by Researchers</div>
+            <div class="bg-white/10 p-8 rounded-2xl" data-aos="zoom-in">Innovation Driven</div>
+            <div class="bg-white/10 p-8 rounded-2xl" data-aos="zoom-in">24/7 Support</div>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 TESTIMONIALS -->
+<section class="py-20 px-4 bg-gray-100">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-12" data-aos="fade-down">
+            Customer Testimonials
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow" data-aos="fade-up">
+                <p class="text-gray-600">“Highly precise and reliable instruments. Perfect for research labs.”</p>
+                <h4 class="mt-4 font-bold">— Dr. A. Smith</h4>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow" data-aos="fade-up">
+                <p class="text-gray-600">“Advanced tools with excellent build quality and fast delivery.”</p>
+                <h4 class="mt-4 font-bold">— Dr. B. Johnson</h4>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow" data-aos="fade-up">
+                <p class="text-gray-600">“Our lab setup became easier and more efficient with SciEquip.”</p>
+                <h4 class="mt-4 font-bold">— LabTech Solutions</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1200, once: true });
+</script>
+
+</body>
+</html>
+{% endblock %}
+

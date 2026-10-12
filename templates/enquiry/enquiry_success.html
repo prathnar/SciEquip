@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Enquiry Submitted | SciEquip{% endblock %}
+
+{% block content %}
+
+<div class="min-h-[70vh] flex items-center justify-center
+            bg-gradient-to-br from-green-50 to-indigo-100 px-4">
+
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-xl p-10 text-center">
+
+        <!-- Icon -->
+        <div class="text-green-500 text-6xl mb-4">
+            ✅
+        </div>
+
+        <!-- Heading -->
+        <h3 class="text-3xl font-extrabold text-gray-800 mb-3">
+            Enquiry Submitted!
+        </h3>
+
+        <!-- Message -->
+        <p class="text-gray-600 mb-8">
+            Thank you for reaching out. Our team will contact you shortly with the best quotation.
+        </p>
+
+        <!-- Button -->
+        <a href="{% url 'product_list' %}" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white
+                  px-8 py-3 rounded-full font-semibold
+                  transition duration-300 shadow-md">
+            Back to Products
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -27,6 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     ".vercel.app",
+    "sci-equip-nyrj748s9-prathmeshnar20-gmailcoms-projects.vercel.app",
     "localhost",
     "127.0.0.1",
 ]
